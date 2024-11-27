@@ -4,5 +4,7 @@ struct Location
 {
     int row;
     int col;
-  //  operator >(Location & other);
+
+    Location() = default;
+    Location(int row, int col) : row(row), col(col) {}
 };
