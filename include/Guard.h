@@ -3,7 +3,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-class Board;
+class board;
 
 class Guard
 {
@@ -13,7 +13,7 @@ public:
 	void set_location(Location& location);
 	Location get_first_loction();
 	void print(Location);
-	void move(Board&); // NOT CONST!!
+	void move(board&); // NOT CONST!!
 	//bool isLeagalMove(Location, Board&) const;
 	Location chooseNewLocation(Location);
 	

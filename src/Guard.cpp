@@ -1,6 +1,6 @@
 #include "Guard.h"
 #include "io.h"
-#include "Board.h"
+#include "boardNEW.h"
 Guard::Guard(const Location& location)
 : m_location(location), m_first_loction (location)
 {}
@@ -29,20 +29,17 @@ void Guard::print(Location newLoc)
 }
 
 
-void Guard::move(Board& board)
+void Guard::move(board& board)
 {
 	bool moved = false;
 	while (!moved) // לולאה שתמשיך לנסות עד שהשומר יזוז
 	{
 		Location newLoc = chooseNewLocation(m_location);
-		if (board.is_legalMove(newLoc) && board.isInArry(newLoc))
+		if (!board.isWall(newLoc) && board.isInLevel(newLoc))
 		{
-			//board.setIndex_inLocation(m_location, ' '); // מנקה את המיקום הקודם
-			//m_location = newLoc; // עדכון מיקום השומר
 			moved = true; // שים לב, עכשיו השומר זז
 			print(newLoc); // הדפסת המיקום החדש		
 			m_location = newLoc; // עדכון מיקום השומר
-
 		}
 	}
 }
