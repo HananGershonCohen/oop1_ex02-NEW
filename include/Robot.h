@@ -5,7 +5,7 @@
 class Robot
 {
 public:
-	Robot(Location &location);
+	Robot(const Location &location);
 	void setLocation(Location location);
 	Location get_location();
 	Location get_first_location();

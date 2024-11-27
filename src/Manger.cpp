@@ -1,3 +1,5 @@
+#include "Manger.h"
+
 #include "Board.h"
 #include "io.h"
 #include "Location.h"
@@ -11,13 +13,15 @@
 #include"Space.h"
 #include <iostream>
 #include <vector>
-#include "Manger.h"
 #include <thread>
 #include <chrono>
 using namespace std::chrono_literals;
 
 void Manger::ran()
 {
+
+
+
     //Board board("level01.txt");
 
     //board.print();

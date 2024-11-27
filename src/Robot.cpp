@@ -1,6 +1,6 @@
 #include "Robot.h"
 
-Robot::Robot(Location& location)
+Robot::Robot(const Location& location)
 	:m_location {location}, m_first_location{location}
 {
 }
