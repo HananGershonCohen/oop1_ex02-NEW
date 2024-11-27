@@ -1,6 +1,6 @@
 #include "Manger.h"
 
-#include "Board.h"
+#include "boardNEW.h"
 #include "io.h"
 #include "Location.h"
 #include <conio.h>
@@ -20,6 +20,30 @@ using namespace std::chrono_literals;
 void Manger::ran()
 {
 
+    board board("level01.txt");
+    board.print();
+
+    vector <Guard> guards_location;
+    vector<Rock> rocks_location;
+    Robot robot(board.getRobot());
+
+    for (int i = 0; i < board.getVecGuard().size(); i++)
+    {
+        guards_location.push_back(board.getVecGuard().at(i));
+    }
+
+    for (int i = 0; i < board.getVecRock().size(); i++)
+    {
+        rocks_location.push_back(board.getVecRock().at(i));
+    }
+
+    for (int i = 0; i < guards_location.size(); i++)
+    {
+        guards_location[i].move(board);
+        std::this_thread::sleep_for(1000ms);
+    }
+
+    Screen::setLocation(Location(board.getRows()+1,0));
 
 
     //Board board("level01.txt");

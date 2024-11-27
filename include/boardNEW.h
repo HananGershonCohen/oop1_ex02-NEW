@@ -10,6 +10,7 @@ class board
 {
 public:
 	board(const string&);
+	int getRows();
 	void print() const;
 	bool isInLevel(Location) const;
 	bool isWall(Location) const;

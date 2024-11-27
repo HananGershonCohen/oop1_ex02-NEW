@@ -14,9 +14,15 @@ board::board(const std::string& fileName) :m_fileName(fileName), m_robotLoc(), m
     {
         updateLevel(line);
         m_numRow++;
+        m_numCol = static_cast<int>(line.size());// Convert size_t to int explicitly to avoid potential data loss warning
     }
     m_numRow--;
-    m_numCol = static_cast<int>(line.size());// Convert size_t to int explicitly to avoid potential data loss warning
+    
+}
+
+int board::getRows()
+{
+    return m_numRow;
 }
 
 void board::updateLevel(const string line)
@@ -35,6 +41,9 @@ void board::print() const
 {
     for (int i = 0; i < m_level.size(); i++)
         cout << m_level[i] << endl ;
+    cout << "m_numRow" << m_numRow << endl;
+    cout << "m_numCol" << m_numCol << endl;
+
 }
 
 bool board::isInLevel(Location loc) const

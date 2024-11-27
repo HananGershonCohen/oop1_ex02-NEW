@@ -19,25 +19,10 @@ using namespace std;
 
 int main()
 {
-  /* auto manger = Manger();
-    manger.ran();*/
+   auto manger = Manger();
+    manger.ran();
 
-    board board("level01.txt");
-    board.print();
-
-    vector <Guard> guards_location;
-    vector<Rock> rocks_location;
-    Robot robot(board.getRobot());
-
-    for (int i = 0; i < board.getVecGuard().size(); i++)
-    {
-        guards_location.push_back(board.getVecGuard().at(i));
-    }
-
-    for (int i = 0; i < board.getVecRock().size(); i++)
-    {
-        rocks_location.push_back(board.getVecRock().at(i));
-    }
+   
 
     return 0;
 }
