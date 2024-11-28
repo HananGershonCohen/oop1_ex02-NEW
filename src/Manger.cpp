@@ -24,12 +24,12 @@ void Manger::ran()
     board.print();
 
     vector <Guard> guards_location;
-    vector<Rock> rocks_location;
-    Robot robot(board.getRobot());
+    //vector<Rock> rocks_location;
+    Robot robot(board.getRobotFirstLoc());
 
-    for (int i = 0; i < board.getVecGuard().size(); i++)
+    for (int i = 0; i < board.getVecGuardFirstLoc().size(); i++)
     {
-        guards_location.push_back(board.getVecGuard().at(i));
+        guards_location.push_back(board.getVecGuardFirstLoc().at(i));
     }
 
  /*   for (int i = 0; i < board.getVecRock().size(); i++)

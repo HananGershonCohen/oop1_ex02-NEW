@@ -12,7 +12,7 @@ public:
 	board(const string&);
 	int getRows();
 	void print() const;
-	void setLocation(Location, Location, char);
+	void setLocation(Location oldLoc, Location newLoc, char);
 	bool isSpace(Location) const;
 	bool isRobot(Location)const;
 	bool isRock(Location)const;
@@ -20,8 +20,8 @@ public:
 	bool isGuard(Location) const;
 	bool isWall(Location) const;
 	bool isInLevel(Location) const;
-	Location getRobot() const;
-	vector<Location> getVecGuard() const;
+	Location getRobotFirstLoc() const;
+	vector<Location> getVecGuardFirstLoc() const;
 	//vector<Location> getVecRock() const;
 
 private:

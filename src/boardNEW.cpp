@@ -52,12 +52,12 @@ bool board::isInLevel(Location loc) const
 }
 
 
-Location board::getRobot() const
+Location board::getRobotFirstLoc() const
 {
     return m_robotLoc;
 }
 
-vector<Location> board::getVecGuard() const
+vector<Location> board::getVecGuardFirstLoc() const
 {
     return m_guardLoc;
 }
