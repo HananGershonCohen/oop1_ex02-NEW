@@ -98,7 +98,3 @@ bool board::isGuard(Location loc) const
 {
     return m_level[loc.row][loc.col] == '!';
 }
-//vector<Location> board::getVecRock() const
-//{
-//    return m_rockLoc;
-//}

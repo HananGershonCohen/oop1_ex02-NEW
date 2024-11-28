@@ -41,5 +41,3 @@ void Robot::move(Location& location)
 {
 	m_location = location;
 }
-//Board & 
-//void Robot::move(Board& board, Manager& manager)

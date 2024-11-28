@@ -20,6 +20,11 @@ Location Guard::get_first_loction()
 	return m_first_loction;
 }
 
+bool Guard::getTouch()
+{
+	return m_touch;
+}
+
 void Guard::print(Location newLoc)
 {
 	Screen::setLocation(m_location);
@@ -32,21 +37,22 @@ void Guard::print(Location newLoc)
 void Guard::move(board& board)
 {
 	bool moved = false;
-	while (!moved) // לולאה שתמשיך לנסות עד שהשומר יזוז
+	
+	while (!moved)
 	{
 		Location newLoc = chooseNewLocation(m_location);
 		if (!board.isWall(newLoc) && !board.isRock(newLoc) && board.isInLevel(newLoc))
 		{
 			
-			moved = true; // שים לב, עכשיו השומר זז
-			print(newLoc); // הדפסת המיקום החדש		
+			moved = true; 
+			print(newLoc); 	
 			if (board.isRobot(newLoc))
 			{
-				cout << "stop the game";
-				// stop the game
+				m_touch = true;
+				break;
 			}
 			board.setLocation(m_location, newLoc, '!');
-			m_location = newLoc; // עדכון מיקום השומר
+			m_location = newLoc; // update
 		}
 	}
 }
