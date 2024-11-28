@@ -12,17 +12,23 @@ public:
 	board(const string&);
 	int getRows();
 	void print() const;
-	bool isInLevel(Location) const;
+	void setLocation(Location, Location, char);
+	bool isSpace(Location) const;
+	bool isRobot(Location)const;
+	bool isRock(Location)const;
+	bool isDoor(Location)const;
+	bool isGuard(Location) const;
 	bool isWall(Location) const;
+	bool isInLevel(Location) const;
 	Location getRobot() const;
 	vector<Location> getVecGuard() const;
-	vector<Location> getVecRock() const;
+	//vector<Location> getVecRock() const;
 
 private:
 	string m_fileName;
 	vector<string> m_level;
 	vector<Location> m_guardLoc;
-	vector<Location> m_rockLoc;
+	//vector<Location> m_rockLoc;
 	Location m_robotLoc;
 	int m_numRow;
 	int m_numCol;

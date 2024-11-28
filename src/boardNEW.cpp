@@ -33,7 +33,7 @@ void board::updateLevel(const string line)
         Location loc(m_numRow, col);
         if (line[col] == '/') m_robotLoc = loc;
         else if (line[col] == '!') m_guardLoc.push_back(loc);
-        else if (line[col] == '@') m_rockLoc.push_back(loc);
+       // else if (line[col] == '@') m_rockLoc.push_back(loc);
     }
 }
 
@@ -51,10 +51,6 @@ bool board::isInLevel(Location loc) const
     return loc.row >= 0 && loc.row <= m_numRow && loc.col >= 0 && loc.col <= m_numCol;
 }
 
-bool board::isWall(Location loc) const
-{
-    return m_level[loc.row][loc.col]=='#';
-}
 
 Location board::getRobot() const
 {
@@ -66,7 +62,43 @@ vector<Location> board::getVecGuard() const
     return m_guardLoc;
 }
 
-vector<Location> board::getVecRock() const
+void board::setLocation(Location oldLoc, Location newLoc, char c)
 {
-    return m_rockLoc;
+    m_level[oldLoc.row][oldLoc.col] = ' ';
+    m_level[newLoc.row][newLoc.col] = c;
 }
+
+bool board::isWall(Location loc) const
+{
+    return m_level[loc.row][loc.col] == '#';
+}
+
+bool board::isSpace(Location loc) const
+{
+    return m_level[loc.row][loc.col] == ' ';
+}
+
+bool board::isRobot(Location loc)const
+{
+    return m_level[loc.row][loc.col] == '/';
+}
+
+bool board::isRock(Location loc)const
+{
+    return m_level[loc.row][loc.col] == '@';
+
+}
+
+bool board::isDoor(Location loc)const
+{
+    return m_level[loc.row][loc.col] == 'D';
+
+}
+bool board::isGuard(Location loc) const
+{
+    return m_level[loc.row][loc.col] == '!';
+}
+//vector<Location> board::getVecRock() const
+//{
+//    return m_rockLoc;
+//}

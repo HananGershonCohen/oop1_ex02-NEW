@@ -32,15 +32,17 @@ void Manger::ran()
         guards_location.push_back(board.getVecGuard().at(i));
     }
 
-    for (int i = 0; i < board.getVecRock().size(); i++)
+ /*   for (int i = 0; i < board.getVecRock().size(); i++)
     {
         rocks_location.push_back(board.getVecRock().at(i));
-    }
+    }*/
 
-    for (int i = 0; i < guards_location.size(); i++)
-    {
-        guards_location[i].move(board);
-        std::this_thread::sleep_for(1000ms);
+    while (true){
+        for (int i = 0; i < guards_location.size(); i++)
+        {
+            guards_location[i].move(board);
+            std::this_thread::sleep_for(100ms);
+        }
     }
 
     Screen::setLocation(Location(board.getRows()+1,0));

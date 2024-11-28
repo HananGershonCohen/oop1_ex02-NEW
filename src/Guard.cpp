@@ -35,10 +35,17 @@ void Guard::move(board& board)
 	while (!moved) // לולאה שתמשיך לנסות עד שהשומר יזוז
 	{
 		Location newLoc = chooseNewLocation(m_location);
-		if (!board.isWall(newLoc) && board.isInLevel(newLoc))
+		if (!board.isWall(newLoc) && !board.isRock(newLoc) && board.isInLevel(newLoc))
 		{
+			
 			moved = true; // שים לב, עכשיו השומר זז
 			print(newLoc); // הדפסת המיקום החדש		
+			if (board.isRobot(newLoc))
+			{
+				cout << "stop the game";
+				// stop the game
+			}
+			board.setLocation(m_location, newLoc, '!');
 			m_location = newLoc; // עדכון מיקום השומר
 		}
 	}
